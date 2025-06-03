@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');   
+const authRoutes = require('./routes/authRoutes');
 const connectDB = require('./config/db');
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false })); // Pour parser les données de
 // Routes
 const courseRoutes = require('./routes/courseRoutes');
 app.use('/api/courses', courseRoutes);
+app.use('/api/auth', authRoutes); // Authentification des utilisateurs
 
 
 
